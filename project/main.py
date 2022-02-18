@@ -1,13 +1,23 @@
 import uvicorn
 from fastapi import FastAPI
 
+from api_calls import jokes_api
+from views import home
+
 app = FastAPI()
 
 
-@app.get("/")
-async def read_root():
-    return {"Hello": "Fast!"}
+def configure():
+    configure_routing()
+
+
+def configure_routing():
+    app.include_router(home.router)
+    app.include_router(jokes_api.router)
 
 
 if __name__ == "__main__":
+    configure()
     uvicorn.run("main:app")
+else:
+    configure()

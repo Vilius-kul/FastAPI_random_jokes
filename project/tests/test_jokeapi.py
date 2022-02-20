@@ -1,10 +1,10 @@
+import pytest
 from clients.jokeapi import JokeAPI
 
 
-def test_get_random_joke():
-    # Arrange
+@pytest.mark.parametrize("anyio_backend", ["asyncio"])
+async def test_jokeapi_random_joke(anyio_backend):
 
-    # Act
-    joke = JokeAPI.get_random_joke()
-    # Assert
-    assert joke == "string"
+    response = await JokeAPI.get_random_joke()
+
+    assert response == ""

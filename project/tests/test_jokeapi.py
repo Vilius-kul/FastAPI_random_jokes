@@ -1,10 +1,18 @@
 import pytest
 from clients.jokeapi import JokeAPI
+from httpx import AsyncClient
+from pytest_httpx import HTTPXMock
 
 
-@pytest.mark.parametrize("anyio_backend", ["asyncio"])
-async def test_jokeapi_random_joke(anyio_backend):
+async def test_get_random_joke_twopart(mock_twopart_async):
 
-    response = await JokeAPI.get_random_joke()
+    joke = await JokeAPI.get_random_joke()
 
-    assert response == ""
+    assert joke == {"Testing Setup": "Testing delivery"}
+
+
+async def test_get_random_joke_single(mock_single_async):
+
+    joke = await JokeAPI.get_random_joke()
+
+    assert joke == {"Random joke": "Testing 1 joke"}

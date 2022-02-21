@@ -1,7 +1,4 @@
-import pytest
 from clients.jokeapi import JokeAPI
-from httpx import AsyncClient
-from pytest_httpx import HTTPXMock
 
 
 async def test_get_random_joke_twopart(mock_twopart_async):

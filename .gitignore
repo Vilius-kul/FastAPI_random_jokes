@@ -1,5 +1,4 @@
 __pycache__
 .venv
 .vscode
-
-project/__pycache__/main.cpython-310.pyc
+.coverage

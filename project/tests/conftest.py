@@ -1,6 +1,5 @@
 import httpx
 import pytest
-from clients.jokeapi import JokeAPI
 from pytest_httpx import HTTPXMock
 
 

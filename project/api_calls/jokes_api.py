@@ -11,5 +11,5 @@ async def random_joke():
 
 
 @router.get("/multiple-jokes")
-def multiple_jokes():
-    return "Multiple Jokes"
+async def multiple_jokes():
+    return await JokeAPI.multiple_jokes()

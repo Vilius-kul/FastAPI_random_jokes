@@ -31,8 +31,3 @@ async def mock_single_async(httpx_mock: HTTPXMock, anyio_backend):
 
     async with httpx.AsyncClient() as client:
         response = await client.get("https://v2.jokeapi.dev/joke/")
-
-
-@pytest.fixture
-def mock_twopart_joke_response(requests_mock):
-    pass

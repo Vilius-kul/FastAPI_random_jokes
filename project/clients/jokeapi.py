@@ -16,7 +16,15 @@ class JokeAPI:
             response.raise_for_status()
         data = response.json()
 
+        joke = {}
+
         if data["type"] == "twopart":
-            return {data["setup"]: data["delivery"]}
+            joke = {data["setup"]: data["delivery"]}
         else:
-            return {"Random joke": data["joke"]}
+            joke = {"Random joke": data["joke"]}
+        return joke
+
+    @classmethod
+    async def multiple_jokes(cls, user_input=0):
+        jokes = {joke: await cls.get_random_joke() for joke in range(user_input)}
+        return jokes

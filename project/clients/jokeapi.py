@@ -25,6 +25,9 @@ class JokeAPI:
         return joke
 
     @classmethod
-    async def multiple_jokes(cls, user_input=0):
+    async def multiple_jokes(cls, user_input):
+        if user_input not in range(1, 11):
+            raise ValueError("Joke_count must be between 1 and 11!")
+
         jokes = {joke: await cls.get_random_joke() for joke in range(user_input)}
         return jokes

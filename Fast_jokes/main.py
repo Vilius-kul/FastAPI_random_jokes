@@ -6,7 +6,7 @@ from fastapi import FastAPI
 from api_calls import jokes_api
 from views import home
 
-os.environ["PICCOLO_CONF"] = "piccolo_conf_test"
+os.environ["PICCOLO_CONF"] = "piccolo_conf"
 
 app = FastAPI()
 

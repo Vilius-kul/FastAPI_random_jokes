@@ -11,5 +11,6 @@ async def read_root():
         <ul>\
         <li><a href='http://127.0.0.1:8000/random-joke'> Random joke! </li>\
         <li><a href='http://127.0.0.1:8000/multi-jokes?joke_count=2'> Multiple jokes/{joke_count}</li>\
+        <li><a href='http://127.0.0.1:8000/jokes-history'> Jokes history </li>\
         </ul>"
     )

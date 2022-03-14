@@ -4,7 +4,7 @@ import uvicorn
 from fastapi import FastAPI
 
 from api_calls import db_api, jokes_api
-from jokes.tables import JokesEnglish
+from jokes_piccoloapp.tables import JokesEnglish
 from views import home
 
 os.environ["PICCOLO_CONF"] = "piccolo_conf"

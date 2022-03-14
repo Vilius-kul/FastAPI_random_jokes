@@ -11,9 +11,9 @@ CURRENT_DIRECTORY = os.path.dirname(os.path.abspath(__file__))
 
 
 APP_CONFIG = AppConfig(
-    app_name="jokes",
+    app_name="jokes_piccoloapp",
     migrations_folder_path=os.path.join(CURRENT_DIRECTORY, "piccolo_migrations"),
-    table_classes=table_finder(["jokes.tables"]),
+    table_classes=table_finder(["jokes_piccoloapp.tables"]),
     migration_dependencies=[],
     commands=[],
 )

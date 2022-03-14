@@ -1,5 +1,5 @@
 import fastapi
-from jokes.tables import JokesEnglish
+from jokes_piccoloapp.tables import JokesEnglish
 
 router = fastapi.APIRouter()
 

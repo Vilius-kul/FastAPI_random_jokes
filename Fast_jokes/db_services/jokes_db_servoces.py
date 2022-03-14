@@ -6,5 +6,5 @@ async def get_db_jokes():
     return all_jokes
 
 
-async def add_jokes_to_db():
-    pass
+async def add_jokes_to_db(joke: str):
+    await JokesEnglish.insert(JokesEnglish(joke=joke))

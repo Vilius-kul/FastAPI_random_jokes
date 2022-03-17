@@ -1,4 +1,4 @@
-from clients.jokeapi import JokeAPI
+from joke_services import JokeAPI
 
 
 async def test_get_random_joke_twopart(mock_twopart_async):

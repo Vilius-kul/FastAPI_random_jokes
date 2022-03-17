@@ -1,6 +1,7 @@
 from urllib.parse import urljoin
 
 import httpx
+
 from models.jokes import PydanticJoke
 
 

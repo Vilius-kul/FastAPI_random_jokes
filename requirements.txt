@@ -5,4 +5,3 @@ pytest-cov
 httpx
 anyio
 piccolo[postgres]
-passlib

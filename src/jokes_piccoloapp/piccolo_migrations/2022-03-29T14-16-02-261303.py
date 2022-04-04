@@ -1,16 +1,18 @@
 from piccolo.apps.migrations.auto.migration_manager import MigrationManager
-from piccolo.columns.column_types import Text, Timestamp
+from piccolo.columns.column_types import Text
+from piccolo.columns.column_types import Timestamp
 from piccolo.columns.defaults.timestamp import TimestampNow
 from piccolo.columns.indexes import IndexMethod
 
-ID = "2022-03-11T16:48:05:167299"
+
+ID = "2022-03-29T14:16:02:261303"
 VERSION = "0.70.1"
-DESCRIPTION = "Create simple table to store english jokes"
+DESCRIPTION = ""
 
 
 async def forwards():
     manager = MigrationManager(
-        migration_id=ID, app_name="jokes", description=DESCRIPTION
+        migration_id=ID, app_name="jokes_piccoloapp", description=DESCRIPTION
     )
 
     manager.add_table("JokesEnglish", tablename="jokes_english")

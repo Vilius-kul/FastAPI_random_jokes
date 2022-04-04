@@ -2,7 +2,7 @@ from piccolo.conf.apps import AppRegistry
 from piccolo.engine.postgres import PostgresEngine
 
 DB = PostgresEngine(
-    config={"user": "Vilius", "password": "12345", "database": "jokes-pg"}
+    config={"user": "Vilius", "password": "12345", "database": "jokes_pg"}
 )
 
 

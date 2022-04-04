@@ -2,7 +2,7 @@ from urllib.parse import urljoin
 
 import httpx
 
-from models.jokes import PydanticJoke
+from models.jokes import Joke
 
 
 class JokeAPI:
@@ -17,7 +17,7 @@ class JokeAPI:
             response = await client.get(url)
             response.raise_for_status()
         data = response.json()
-        joke = PydanticJoke(**data)
+        joke = Joke(**data)
 
         if joke.type == "single":
             return joke.joke

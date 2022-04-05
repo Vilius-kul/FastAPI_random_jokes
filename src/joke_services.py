@@ -8,6 +8,7 @@ from models.jokes import Joke
 class JokeAPI:
 
     base_url = "https://v2.jokeapi.dev/joke/"
+    # base_url = "https://v2.belekas.dev"
 
     @classmethod
     async def get_random_joke(cls):

@@ -1,7 +1,7 @@
 from fastapi import APIRouter, BackgroundTasks, Depends
 
+from data.tables import JokesEnglish
 from joke_services import JokeAPI
-from jokes_piccoloapp.tables import JokesEnglish
 from models.userinput import UserInput
 
 router = APIRouter()

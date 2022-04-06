@@ -3,6 +3,7 @@ from urllib.parse import urljoin
 import httpx
 
 from models.jokes import Joke
+from models.validation_error import ValidationError
 
 
 class JokeAPI:
@@ -27,5 +28,14 @@ class JokeAPI:
 
     @classmethod
     async def multiple_jokes(cls, user_input):
-        jokes = [await cls.get_random_joke() for joke in range(user_input)]
+        validated = cls.validate_userinput(user_input)
+        jokes = [await cls.get_random_joke() for joke in range(validated)]
         return jokes
+
+    @staticmethod
+    def validate_userinput(user_input: int):
+        if user_input <= 10 and user_input > 0:
+            return user_input
+        raise ValidationError(
+            status_code=400, error_msg="Joke count must be between 1 and 10!"
+        )

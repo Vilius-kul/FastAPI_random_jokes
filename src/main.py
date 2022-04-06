@@ -22,6 +22,6 @@ def configure_routing():
 
 if __name__ == "__main__":
     configure()
-    uvicorn.run("main:app")
+    uvicorn.run("main:app", reload=True)
 else:
     configure()

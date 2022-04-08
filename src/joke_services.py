@@ -1,6 +1,7 @@
 from urllib.parse import urljoin
 
 import httpx
+from httpx import Response
 
 from models.jokes import Joke
 from models.validation_error import ValidationError
@@ -9,16 +10,21 @@ from models.validation_error import ValidationError
 class JokeAPI:
 
     base_url = "https://v2.jokeapi.dev/joke/"
-    # base_url = "https://v2.belekas.dev"
 
     @classmethod
     async def get_random_joke(cls):
         endpoint = "Any?blacklistFlags=nsfw,racist,sexist,explicit"
         url = urljoin(cls.base_url, endpoint)
         async with httpx.AsyncClient() as client:
-            response = await client.get(url)
-            response.raise_for_status()
-        data = response.json()
+            try:
+                resp: Response = await client.get(url)
+                resp.raise_for_status()
+            except httpx.RequestError as exc:
+                return f"An error occurred while requesting {exc.request.url}."
+            except httpx.HTTPStatusError as exc:
+                return f"Error response {exc.response.status_code} while requesting {exc.request.url}."
+
+        data = resp.json()
         joke = Joke(**data)
 
         if joke.type == "single":

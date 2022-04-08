@@ -30,3 +30,11 @@ async def mock_single_async(httpx_mock: HTTPXMock, anyio_backend):
 
     async with httpx.AsyncClient() as client:
         response = await client.get("https://v2.jokeapi.dev/joke/")
+
+
+@pytest.fixture
+async def mock_random_joke_non_200_resp(httpx_mock: HTTPXMock, anyio_backend):
+    httpx_mock.add_response(status_code=501)
+
+    async with httpx.AsyncClient() as client:
+        response = await client.get("https://v2.jokeapi.dev/joke/")

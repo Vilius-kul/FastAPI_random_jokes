@@ -22,7 +22,9 @@ class JokeAPI:
             except httpx.RequestError as exc:
                 return f"An error occurred while requesting {exc.request.url}."
             except httpx.HTTPStatusError as exc:
-                return f"Error response {exc.response.status_code} while requesting {exc.request.url}."
+                return (
+                    f"Error response {exc.response.status_code} while requesting url."
+                )
 
         data = resp.json()
         joke = Joke(**data)

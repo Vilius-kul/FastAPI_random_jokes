@@ -24,6 +24,16 @@ async def test_multiple_jokes_with_input(mock_single_async):
     assert len(jokes) == 3
 
 
+async def test_multiple_jokes_with_bad_input(mock_single_async):
+
+    not_valid_count = 11
+
+    with pytest.raises(Exception) as ex:
+        jokes = await JokeAPI.multiple_jokes(not_valid_count)
+
+    assert "Joke count must be between 1 and 10!" == str(ex.value)
+
+
 async def test_get(mock_random_joke_non_200_resp):
 
     url = "https://v2.jokeapi.dev/joke/"
@@ -34,11 +44,8 @@ async def test_get(mock_random_joke_non_200_resp):
     assert response.status_code == 501
 
 
-async def test_multiple_jokes_with_bad_input(mock_single_async):
+async def test_random_joke_get(mock_random_joke_non_200_resp):
 
-    not_valid_count = 11
+    joke = await JokeAPI.get_random_joke()
 
-    with pytest.raises(Exception) as ex:
-        jokes = await JokeAPI.multiple_jokes(not_valid_count)
-
-    assert "Joke count must be between 1 and 10!" == str(ex.value)
+    assert joke == "Error response 501 while requesting url."

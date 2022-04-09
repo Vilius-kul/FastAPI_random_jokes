@@ -4,4 +4,5 @@ current_dir=$(pwd)
 export PYTHONPATH=$PYTHONPATH:$current_dir
 
 
-pytest --cov -v
+pytest --cov-report term-missing:skip-covered --cov -v
+

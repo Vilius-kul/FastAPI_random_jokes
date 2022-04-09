@@ -1,5 +1,5 @@
 import httpx
-from pytest_httpx import HTTPXMock
+import pytest
 from src.joke_services import JokeAPI
 
 
@@ -32,3 +32,13 @@ async def test_get(mock_random_joke_non_200_resp):
         response = await client.get(url)
 
     assert response.status_code == 501
+
+
+async def test_multiple_jokes_with_bad_input(mock_single_async):
+
+    not_valid_count = 11
+
+    with pytest.raises(Exception) as ex:
+        jokes = await JokeAPI.multiple_jokes(not_valid_count)
+
+    assert "Joke count must be between 1 and 10!" == str(ex.value)

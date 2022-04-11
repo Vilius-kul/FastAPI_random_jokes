@@ -5,3 +5,4 @@ pytest-cov
 httpx
 anyio
 piccolo[postgres]
+pytest-httpx

@@ -4,7 +4,6 @@ from src.joke_services import JokeAPI
 
 
 async def test_get_random_joke_twopart(mock_twopart_async):
-
     result = await JokeAPI.get_random_joke()
 
     assert result == "Testing Setup -> Testing delivery"

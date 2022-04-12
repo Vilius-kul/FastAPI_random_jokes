@@ -1,8 +1,12 @@
+import os
+
 import uvicorn
 from fastapi import FastAPI
 
-from api_calls import jokes_api
+import api
 from views import home
+
+os.environ["PICCOLO_CONF"] = "piccolo_conf"
 
 app = FastAPI()
 
@@ -13,11 +17,11 @@ def configure():
 
 def configure_routing():
     app.include_router(home.router)
-    app.include_router(jokes_api.router)
+    app.include_router(api.router)
 
 
 if __name__ == "__main__":
     configure()
-    uvicorn.run("main:app")
+    uvicorn.run("main:app", reload=True)
 else:
     configure()

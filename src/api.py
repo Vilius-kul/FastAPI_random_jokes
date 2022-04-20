@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, Response
 
 from data.tables import JokesEnglish
 from joke_services import JokeAPI
-from models.userinput import UserInput
+from models.user_input import UserInput
 from models.validation_error import ValidationError
 
 router = APIRouter()
@@ -26,7 +26,7 @@ async def multi_joke(count: UserInput = Depends()):
         return Response(content=ve.error_msg, status_code=ve.status_code)
 
     except Exception as x:
-        return Response(content=str(x), status_code=500)
+        return Response(content=str(x), status_code=400)
     try:
         for joke in jokes:
             await JokesEnglish.insert(JokesEnglish(joke=joke))

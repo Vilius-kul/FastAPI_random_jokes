@@ -36,12 +36,12 @@ class JokeAPI:
 
     @classmethod
     async def multiple_jokes(cls, user_input):
-        validated = cls.validate_userinput(user_input)
+        validated = cls.validate_user_input(user_input)
         jokes = [await cls.get_random_joke() for joke in range(validated)]
         return jokes
 
     @staticmethod
-    def validate_userinput(user_input: int):
+    def validate_user_input(user_input: int):
         if user_input <= 10 and user_input > 0:
             return user_input
         raise ValidationError(

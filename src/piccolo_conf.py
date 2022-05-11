@@ -4,9 +4,9 @@ from piccolo.engine.postgres import PostgresEngine
 DB = PostgresEngine(
     config={
         "database": "jokes_pg",
-        "user": "Vilius",
-        "password": "12345",
-        "host": "localhost",
+        "user": "admin",
+        "password": "admin123",
+        "host": "postgres-db",
         "port": "5432",
     }
 )

@@ -2,6 +2,3 @@ __pycache__
 .venv
 .vscode
 .coverage
-test
-run_test.sh
-run_service.sh

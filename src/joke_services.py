@@ -3,8 +3,8 @@ from urllib.parse import urljoin
 import httpx
 from httpx import Response
 
-from src.models.jokes import Joke
-from src.models.validation_error import ValidationError
+from models.jokes import Joke
+from models.validation_error import ValidationError
 
 
 class JokeAPI:

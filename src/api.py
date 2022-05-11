@@ -15,7 +15,9 @@ async def random_joke():
         await JokesEnglish.insert(JokesEnglish(joke=joke))
     except ConnectionError as ce:
         return ce.args
-    return await JokesEnglish.select().order_by(JokesEnglish.id, ascending=False).first()  # type: ignore
+    return (
+        await JokesEnglish.select().order_by(JokesEnglish.id, ascending=False).first()  # type: ignore
+    )
 
 
 @router.get("/multi_jokes")

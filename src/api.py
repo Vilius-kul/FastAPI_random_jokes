@@ -16,7 +16,7 @@ async def random_joke():
     except ConnectionError as ce:
         return ce.args
     return (
-        await JokesEnglish.select().order_by(JokesEnglish.id, ascending=False).first()  # type: ignore
+        await JokesEnglish.select().order_by(JokesEnglish.id, ascending=False).first()  # type: ignore pylint: disable=no-member
     )
 
 
@@ -37,7 +37,7 @@ async def multi_joke(count: UserInput = Depends()):
 
     return (
         await JokesEnglish.select()
-        .order_by(JokesEnglish.id, ascending=False)  # type: ignore
+        .order_by(JokesEnglish.id, ascending=False)  # type: ignore pylint: disable=no-member
         .limit(count.joke_count)
     )
 
